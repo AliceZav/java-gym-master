@@ -42,8 +42,8 @@ public class Timetable {
         }
     }
 
-    public HashMap<Coach, Integer> getCountByCoaches() {
-        HashMap<Coach, Integer> countByCoach = new HashMap<>();
+    public Map<Coach, Integer> getCountByCoaches() {
+        Map<Coach, Integer> countByCoach = new HashMap<>();
 
         for (TreeMap<TimeOfDay, ArrayList<TrainingSession>> dayTimetable : timetable.values()) {
             for (ArrayList<TrainingSession> trainingList : dayTimetable.values()) {
@@ -58,7 +58,7 @@ public class Timetable {
         sortedEntries.sort((entry1, entry2) ->
                                 entry2.getValue().compareTo(entry1.getValue()));
 
-        HashMap<Coach, Integer> sortedCoachCount = new LinkedHashMap<>();
+        Map<Coach, Integer> sortedCoachCount = new LinkedHashMap<>();
         for (Map.Entry<Coach, Integer> entry : sortedEntries) {
             sortedCoachCount.put(entry.getKey(), entry.getValue());
         }
